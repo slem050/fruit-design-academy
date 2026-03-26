@@ -78,6 +78,10 @@ web_modules/
 .next
 out
 
+# Local tooling caches
+.npm-cache/
+Library/
+
 # Nuxt.js build / generate output
 .nuxt
 dist
@@ -137,3 +141,12 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Documentation and markdown (application code lives under web/)
+*.md
+docs/
+
+# Cursor / editor agent config (local only)
+.cursor/
+.cursorrules
+.cursorignore
