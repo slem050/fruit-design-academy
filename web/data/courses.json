@@ -1,0 +1,16 @@
+[
+  {
+    "id": "c-1",
+    "title": "Elegant Fruit Tray Design",
+    "slug": "elegant-fruit-tray-design",
+    "subtitle": "Learn premium tray composition for events",
+    "description": "A complete starter course for designing elegant fruit trays for weddings and private events.",
+    "marketingText": "Start creating premium fruit trays with confidence.",
+    "price": 149,
+    "status": "published",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1619566636858-adf3ef46400b",
+    "isFeatured": true,
+    "createdAt": "2025-01-01T00:00:00.000Z",
+    "updatedAt": "2025-01-01T00:00:00.000Z"
+  }
+]
