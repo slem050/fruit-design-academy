@@ -1,6 +1,7 @@
 import { randomUUID } from "node:crypto";
 
 import { readCoursesFromFile, writeCoursesToFile } from "@/features/courses/repositories/courses-file";
+import { buildModulesFromOutline, type ModuleOutline } from "@/features/courses/services/course-outline.service";
 import type { Course, CreateCourseInput, UpdateCourseInput } from "@/features/courses/types/course";
 
 const normalizeSlug = (value: string): string => value.trim().toLowerCase().replace(/\s+/g, "-");
@@ -36,7 +37,8 @@ export const createCourse = async (input: CreateCourseInput): Promise<Course> =>
     ...input,
     slug: normalizedSlug,
     createdAt: timestamp,
-    updatedAt: timestamp
+    updatedAt: timestamp,
+    modules: []
   };
 
   courses.push(course);
@@ -64,6 +66,28 @@ export const updateCourse = async (id: string, input: UpdateCourseInput): Promis
     ...existing,
     ...input,
     slug: normalizedSlug,
+    modules: existing.modules,
+    updatedAt: new Date().toISOString()
+  };
+
+  courses[index] = updated;
+  await writeCoursesToFile(courses);
+  return updated;
+};
+
+export const updateCourseOutline = async (id: string, modules: ModuleOutline[]): Promise<Course> => {
+  const courses = await readCoursesFromFile();
+  const index = courses.findIndex((item) => item.id === id);
+
+  if (index === -1) {
+    throw new Error("Course not found.");
+  }
+
+  const existing = courses[index];
+  const normalizedModules = buildModulesFromOutline(id, modules);
+  const updated: Course = {
+    ...existing,
+    modules: normalizedModules,
     updatedAt: new Date().toISOString()
   };
 

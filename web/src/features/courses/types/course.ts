@@ -1,5 +1,24 @@
 export type CourseStatus = "draft" | "published";
 
+export type Lesson = {
+  id: string;
+  moduleId: string;
+  title: string;
+  description: string;
+  videoUrl: string;
+  isPreview: boolean;
+  order: number;
+  duration: number;
+};
+
+export type CourseModule = {
+  id: string;
+  courseId: string;
+  title: string;
+  order: number;
+  lessons: Lesson[];
+};
+
 export type Course = {
   id: string;
   title: string;
@@ -13,6 +32,7 @@ export type Course = {
   isFeatured: boolean;
   createdAt: string;
   updatedAt: string;
+  modules: CourseModule[];
 };
 
 export type CreateCourseInput = {

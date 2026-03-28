@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { ReactElement } from "react";
 
 import { AdminCourseEditForm } from "@/features/courses/components/admin-course-edit-form";
+import { AdminCourseOutlineForm } from "@/features/courses/components/admin-course-outline-form";
 import { findCourseById } from "@/features/courses/repositories/course.repository";
 
 type EditCoursePageProps = {
@@ -25,6 +26,7 @@ export default async function EditAdminCoursePage({ params }: EditCoursePageProp
         Changes are saved to the local data file (web/data/courses.json). Serverless hosts do not persist filesystem writes; use a real database for production.
       </p>
       <AdminCourseEditForm course={course} />
+      <AdminCourseOutlineForm courseId={course.id} initialModules={course.modules} />
     </main>
   );
 }
