@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import type { ReactElement } from "react";
 import { useCallback, useState } from "react";
 
@@ -12,7 +12,6 @@ type AuthTab = "signin" | "signup";
 
 type MockAuthEntryProps = {
   nextPath: string;
-  initialTab: AuthTab;
   labels: MessageCatalog["login"];
 };
 
@@ -28,16 +27,16 @@ function buildLoginPath(nextPath: string, tab: AuthTab): string {
   return query ? `/login?${query}` : "/login";
 }
 
-export function MockAuthEntry({ nextPath, initialTab, labels }: MockAuthEntryProps): ReactElement {
+export function MockAuthEntry({ nextPath, labels }: MockAuthEntryProps): ReactElement {
   const router = useRouter();
-  const [tab, setTab] = useState<AuthTab>(initialTab);
+  const searchParams = useSearchParams();
+  const tab: AuthTab = searchParams.get("tab") === "signup" ? "signup" : "signin";
   const [message, setMessage] = useState<string>("");
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
 
   const selectTab = useCallback(
     (next: AuthTab): void => {
-      setTab(next);
       setMessage("");
       router.replace(buildLoginPath(nextPath, next), { scroll: false });
     },

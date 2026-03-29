@@ -34,22 +34,30 @@ export default async function AdminCoursesPage(): Promise<ReactElement> {
               </tr>
             </thead>
             <tbody>
-              {courses.map((course) => (
-                <tr key={course.id} className="border-t border-orange-100">
-                  <td className="px-4 py-3">{course.title}</td>
-                  <td className="px-4 py-3">{course.slug}</td>
-                  <td className="px-4 py-3">{course.status}</td>
-                  <td className="px-4 py-3">${course.price}</td>
-                  <td className="px-4 py-3">
-                    <Link
-                      href={`/admin/courses/${course.id}/edit`}
-                      className="font-semibold text-orange-700 hover:underline"
-                    >
-                      Edit
-                    </Link>
+              {courses.length === 0 ? (
+                <tr>
+                  <td colSpan={5} className="px-4 py-8 text-center text-sm text-neutral-600">
+                    No courses yet. Create one to get started.
                   </td>
                 </tr>
-              ))}
+              ) : (
+                courses.map((course) => (
+                  <tr key={course.id} className="border-t border-orange-100">
+                    <td className="px-4 py-3">{course.title}</td>
+                    <td className="px-4 py-3">{course.slug}</td>
+                    <td className="px-4 py-3">{course.status}</td>
+                    <td className="px-4 py-3">${course.price}</td>
+                    <td className="px-4 py-3">
+                      <Link
+                        href={`/admin/courses/${course.id}/edit`}
+                        className="font-semibold text-orange-700 hover:underline"
+                      >
+                        Edit
+                      </Link>
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>

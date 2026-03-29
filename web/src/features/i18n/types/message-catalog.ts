@@ -1,5 +1,7 @@
 export type MessageCatalog = {
   chrome: {
+    skipToContent: string;
+    mainNavAria: string;
     navHome: string;
     navAbout: string;
     navCourses: string;
@@ -45,6 +47,48 @@ export type MessageCatalog = {
     ctaBandBody: string;
     ctaBandCourses: string;
     ctaBandContact: string;
+    heroSubhead: string;
+    pillarsTitle: string;
+    pillar1Title: string;
+    pillar1Body: string;
+    pillar2Title: string;
+    pillar2Body: string;
+    pillar3Title: string;
+    pillar3Body: string;
+    storyKicker: string;
+    storyTitle: string;
+    storyLead: string;
+    storyBody: string;
+    learnTitle: string;
+    learn1Title: string;
+    learn1Body: string;
+    learn2Title: string;
+    learn2Body: string;
+    learn3Title: string;
+    learn3Body: string;
+    whoTitle: string;
+    who1Title: string;
+    who1Body: string;
+    who2Title: string;
+    who2Body: string;
+    who3Title: string;
+    who3Body: string;
+    who4Title: string;
+    who4Body: string;
+    outcomesTitle: string;
+    outcome1: string;
+    outcome2: string;
+    outcome3: string;
+    outcome4: string;
+    faqTitle: string;
+    faq1Q: string;
+    faq1A: string;
+    faq2Q: string;
+    faq2A: string;
+    faq3Q: string;
+    faq3A: string;
+    gallerySubtitle: string;
+    testimonialsKicker: string;
   };
   login: {
     title: string;
@@ -68,6 +112,7 @@ export type MessageCatalog = {
     catalogBadge: string;
     catalogEyebrow: string;
     catalogTitle: string;
+    catalogEmpty: string;
     viewDetails: string;
     backHome: string;
     detailCurriculum: string;
@@ -92,6 +137,16 @@ export type MessageCatalog = {
     dashboardOverview: string;
     dashboardResume: string;
     dashboardBack: string;
+  };
+  errors: {
+    notFoundTitle: string;
+    notFoundBody: string;
+    notFoundHome: string;
+    notFoundCourses: string;
+    boundaryTitle: string;
+    boundaryBody: string;
+    tryAgain: string;
+    boundaryHome: string;
   };
   about: {
     badge: string;

@@ -26,6 +26,16 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+## Deploy to Vercel
+
+1. Push this repo to GitHub (or GitLab / Bitbucket).
+2. In [Vercel](https://vercel.com), **Add New Project** → import the repository.
+3. Set **Root Directory** to **`web`** (the Next.js app lives there, not the repo root).
+4. Install command: `npm install` (default). Build command: `npm run build` (default).
+5. Deploy. Optional env vars: `DEMO_MODE`, `CONTACT_FORWARD_URL` (see `web/.env.example`).
+
+`web/data/courses.json` is for local/demo file IO; on serverless, prefer a real database (Phase 2) or treat edits as non-persistent.
+
 ### Scripts
 
 ```bash

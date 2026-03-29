@@ -10,7 +10,7 @@ const links: { href: string; label: string }[] = [
 
 export function AdminSubnav(): ReactElement {
   return (
-    <nav className="border-b border-orange-100 bg-orange-50/60" aria-label="Admin">
+    <nav className="border-b border-orange-100 bg-orange-50/60" aria-label="Admin sections">
       <ul className="mx-auto flex max-w-5xl flex-wrap gap-1 px-4 py-2 sm:gap-2 sm:px-6">
         {links.map((item) => (
           <li key={item.href}>

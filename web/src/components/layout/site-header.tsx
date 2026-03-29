@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { ReactElement } from "react";
+import { Suspense } from "react";
 
+import { GuestAuthNav } from "@/components/layout/guest-auth-nav";
 import { headerShell } from "@/components/layout/page-container";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { createTranslator } from "@/features/i18n/messages/translator";
@@ -30,7 +32,10 @@ export async function SiteHeader(): Promise<ReactElement> {
           </Link>
           <LanguageSwitcher currentLanguage={language} />
         </div>
-        <nav className="flex flex-wrap items-center gap-x-1 gap-y-2 text-xs sm:gap-x-2 sm:text-sm md:gap-x-3">
+        <nav
+          aria-label={t("chrome.mainNavAria")}
+          className="flex flex-wrap items-center gap-x-1 gap-y-2 text-xs sm:gap-x-2 sm:text-sm md:gap-x-3"
+        >
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -64,20 +69,9 @@ export async function SiteHeader(): Promise<ReactElement> {
               {t("chrome.signOut")}
             </Link>
           ) : (
-            <>
-              <Link
-                href="/login"
-                className="inline-flex min-h-9 items-center rounded-full px-2.5 py-1.5 text-neutral-700 hover:bg-orange-50 sm:min-h-10 sm:px-3"
-              >
-                {t("chrome.signIn")}
-              </Link>
-              <Link
-                href="/login?tab=signup"
-                className="inline-flex min-h-9 items-center rounded-full px-2.5 py-1.5 text-neutral-700 hover:bg-orange-50 sm:min-h-10 sm:px-3"
-              >
-                {t("chrome.signUp")}
-              </Link>
-            </>
+            <Suspense fallback={null}>
+              <GuestAuthNav signInLabel={t("chrome.signIn")} signUpLabel={t("chrome.signUp")} />
+            </Suspense>
           )}
         </nav>
       </div>

@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { ReactElement } from "react";
 
 import { Card } from "@/components/ui/card";
+import { RemoteFillImage } from "@/components/ui/remote-fill-image";
 import { Section } from "@/components/ui/section";
 import { listCourses } from "@/features/courses/repositories/course.repository";
 import { applyCourseLocalization } from "@/features/courses/services/course-localization.service";
@@ -36,13 +36,7 @@ export async function HomeFeaturedCourses({
           return (
             <Card key={course.id} className="overflow-hidden p-0">
               <div className="relative aspect-[16/10] w-full bg-neutral-100">
-                <Image
-                  src={course.thumbnailUrl}
-                  alt=""
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
+                <RemoteFillImage src={course.thumbnailUrl} alt={course.title} />
               </div>
               <div className="space-y-2 p-4">
                 <h3 className="text-lg font-semibold leading-snug">{course.title}</h3>

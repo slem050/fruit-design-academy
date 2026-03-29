@@ -49,6 +49,10 @@ Copy **`web/.env.example`** to **`.env.local`** and adjust.
 
 `POST /api/auth/mock/login` sets `fruit_mock_session`. Admin APIs use `requireMockAdmin`. The root README describes the full product and deployment notes.
 
+## Deploy (Vercel)
+
+In the Vercel project settings, set **Root Directory** to **`web`**. Connect the repo and deploy; no extra config file is required for a standard Next.js build.
+
 ## Translations (extensible)
 
 UI strings live in **`src/features/i18n/messages/{he,ar,en}.json`** (`chrome`, `home`, `login`, `courses`, `about`, `contact`). Use **`createTranslator(locale)`** from `src/features/i18n/messages/translator.ts`. Missing keys fall back to English. Add a locale by adding `xx.json`, extending the `Language` type, and updating middleware / `locale` API / language switcher.
