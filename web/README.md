@@ -2,6 +2,8 @@
 
 Next.js (App Router) frontend and API routes for the Fruit Design Academy platform.
 
+**Production:** [fruit-design-academy.vercel.app](https://fruit-design-academy.vercel.app/)
+
 ## Commands
 
 ```bash
@@ -51,7 +53,7 @@ Copy **`web/.env.example`** to **`.env.local`** and adjust.
 
 ## Deploy (Vercel)
 
-In the Vercel project settings, set **Root Directory** to **`web`**. Connect the repo and deploy; no extra config file is required for a standard Next.js build.
+In the Vercel project settings, set **Root Directory** to **`web`**. Add **`DEMO_MODE=true`** for production/preview so mock login works (see **Demo mode** above). Full checklist: repo root **`README.md`** → _Deploy to Vercel_.
 
 ## Translations (extensible)
 

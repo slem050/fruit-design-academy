@@ -20,16 +20,15 @@ function sanitizeNextPath(next: string | undefined): string {
 function LoginAuthSkeleton(): ReactElement {
   return (
     <div
-      className="mx-auto flex w-full max-w-md flex-col gap-6"
+      className="mx-auto flex w-full max-w-3xl flex-col gap-6 lg:flex-row lg:gap-8"
       aria-busy="true"
       aria-label="Loading"
     >
-      <div className="space-y-2 text-center">
-        <div className="mx-auto h-9 w-3/4 max-w-xs animate-pulse rounded-lg bg-orange-100" />
-        <div className="mx-auto h-4 w-full max-w-sm animate-pulse rounded bg-orange-50" />
+      <div className="flex flex-col gap-3 lg:w-52">
+        <div className="h-24 animate-pulse rounded-2xl bg-orange-100/90" />
+        <div className="h-24 animate-pulse rounded-2xl bg-rose-100/90" />
       </div>
-      <div className="h-11 animate-pulse rounded-full bg-orange-50" />
-      <div className="h-64 animate-pulse rounded-3xl bg-orange-50" />
+      <div className="min-h-64 flex-1 animate-pulse rounded-3xl bg-orange-50/80" />
     </div>
   );
 }

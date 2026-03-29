@@ -2,6 +2,8 @@
 
 A **presentation-first** course platform for fruit design: public catalog, curriculum with preview vs locked lessons, **mock admin auth**, file-backed course data for local demos, and CI (lint, tests, build).
 
+**Live demo (Vercel):** [fruit-design-academy.vercel.app](https://fruit-design-academy.vercel.app/)
+
 Production target: **Next.js** on Vercel, **Supabase** (Postgres + Auth + Storage), **Stripe**, **Vimeo** (or signed video). The codebase is structured so repositories and route handlers can swap from file storage to a real backend without rewriting the UI.
 
 ## Repository layout
@@ -26,15 +28,30 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Deploy to Vercel
+## Deploy to Vercel (recommended for this demo)
 
-1. Push this repo to GitHub (or GitLab / Bitbucket).
-2. In [Vercel](https://vercel.com), **Add New Project** → import the repository.
-3. Set **Root Directory** to **`web`** (the Next.js app lives there, not the repo root).
-4. Install command: `npm install` (default). Build command: `npm run build` (default).
-5. Deploy. Optional env vars: `DEMO_MODE`, `CONTACT_FORWARD_URL` (see `web/.env.example`).
+**Why Vercel:** Native Next.js support (App Router, API routes, middleware), preview deployments on every PR, HTTPS and edge out of the box. Alternatives like Netlify or Cloudflare Pages work too but need more Next-specific tuning.
 
-`web/data/courses.json` is for local/demo file IO; on serverless, prefer a real database (Phase 2) or treat edits as non-persistent.
+### What to do (first time)
+
+1. Push this repository to **GitHub** (if it is not already remote).
+2. Sign in at [vercel.com](https://vercel.com) with your GitHub account.
+3. **Add New… → Project** → **Import** this repo.
+4. Under **Configure Project**, set **Root Directory** to **`web`** (required — the app is not at the repo root).
+5. Leave **Framework Preset** as Next.js; **Build Command** `npm run build` and **Output** default are fine.
+6. **Environment Variables** (Production — and Preview if you want mock auth on PR previews too):
+   - **`DEMO_MODE`** = `true` — keeps **mock login** and demo APIs working on the live site. Without this, production builds disable mock auth by default (see `web/src/config/demo-mode.ts`).
+   - Optional: **`CONTACT_FORWARD_URL`** if you later turn off demo mode and forward contact submissions.
+7. Click **Deploy**. After the first deploy, **Vercel redeploys automatically** whenever you push to the **Production Branch** (usually `main` or `master`) — no extra step. **Pull requests** get a unique **Preview** deployment URL on each push (configure under Project → Settings → Git).
+
+**Current production:** [https://fruit-design-academy.vercel.app/](https://fruit-design-academy.vercel.app/)
+
+`web/data/courses.json` is **not** a durable database on serverless: admin edits may not persist across cold starts. For a stable public catalog on the demo, commit seed data in git or move to a real DB in Phase 2.
+
+### CI vs Vercel
+
+- **GitHub Actions** (`.github/workflows/ci.yml`) runs on push/PR: `lint`, `format:check`, `test`, `build`, Playwright smoke. It is your quality gate; it does not replace Vercel’s build.
+- **Vercel** builds and hosts the app when you connect the repo. Keep CI green, then merge — Vercel deploys from the same commit.
 
 ### Scripts
 
@@ -72,7 +89,7 @@ Homepage supports **Hebrew** and **Arabic** via `?lang=he` and `?lang=ar` (RTL l
 
 ## CI
 
-On push/PR to `main` or `master`, CI runs in `web/`: `npm ci`, `npm run lint`, `npm run test`, `npm run build`.
+On push/PR to `main` or `master` (and **Run workflow** manually in the Actions tab), CI runs in `web/`: `npm ci`, `lint`, `format:check`, `test`, `build`, then Playwright **Chromium** smoke tests against `next start` on port **4173**.
 
 ## Deployment notes
 

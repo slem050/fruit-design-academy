@@ -70,7 +70,7 @@ export async function SiteHeader(): Promise<ReactElement> {
             </Link>
           ) : (
             <Suspense fallback={null}>
-              <GuestAuthNav signInLabel={t("chrome.signIn")} signUpLabel={t("chrome.signUp")} />
+              <GuestAuthNav label={t("chrome.signIn")} />
             </Suspense>
           )}
         </nav>
