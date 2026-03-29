@@ -4,23 +4,24 @@ import { pageLead, pageShell, pageTitle } from "@/components/layout/page-contain
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Section } from "@/components/ui/section";
+import { createTranslator } from "@/features/i18n/messages/translator";
+import { getLocaleFromHeaders } from "@/features/i18n/services/locale.server";
 
-export default function AboutPage(): ReactElement {
+export default async function AboutPage(): Promise<ReactElement> {
+  const language = await getLocaleFromHeaders();
+  const { t } = createTranslator(language);
+
   return (
     <main className={`${pageShell} flex flex-col gap-6 sm:gap-8`}>
       <header className="space-y-2 sm:space-y-3">
-        <Badge>About</Badge>
-        <h1 className={pageTitle}>אודות האקדמיה לעיצוב פירות</h1>
-        <p className={pageLead}>
-          הפלטפורמה נבנית כדי להציג אומנות עיצוב פירות לאירועים ולספק מסלול למידה דיגיטלי מקצועי לסטודנטים.
-        </p>
+        <Badge>{t("about.badge")}</Badge>
+        <h1 className={pageTitle}>{t("about.title")}</h1>
+        <p className={pageLead}>{t("about.lead")}</p>
       </header>
 
-      <Section title="החזון שלנו">
+      <Section title={t("about.visionTitle")}>
         <Card>
-          <p className="leading-relaxed text-neutral-700">
-            להפוך את תחום עיצוב הפירות לנגיש יותר באמצעות קורסים מצולמים, תרגול מובנה ותוכן חזותי ברמה גבוהה.
-          </p>
+          <p className="leading-relaxed text-neutral-700">{t("about.visionBody")}</p>
         </Card>
       </Section>
     </main>

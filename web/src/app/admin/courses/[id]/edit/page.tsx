@@ -12,7 +12,9 @@ type EditCoursePageProps = {
 
 export const dynamic = "force-dynamic";
 
-export default async function EditAdminCoursePage({ params }: EditCoursePageProps): Promise<ReactElement> {
+export default async function EditAdminCoursePage({
+  params
+}: EditCoursePageProps): Promise<ReactElement> {
   const { id } = await params;
   const course = await findCourseById(id);
 
@@ -24,7 +26,8 @@ export default async function EditAdminCoursePage({ params }: EditCoursePageProp
     <main className={`${pageShell} flex flex-col gap-8 sm:gap-10`}>
       <h1 className={pageTitle}>Edit course</h1>
       <p className={pageLead}>
-        Changes are saved to the local data file (web/data/courses.json). Serverless hosts do not persist filesystem writes; use a real database for production.
+        Changes are saved to the local data file (web/data/courses.json). Serverless hosts do not
+        persist filesystem writes; use a real database for production.
       </p>
       <AdminCourseEditForm course={course} />
       <AdminCourseOutlineForm courseId={course.id} initialModules={course.modules} />

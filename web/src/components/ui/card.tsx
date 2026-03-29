@@ -7,7 +7,9 @@ type CardProps = {
 
 export function Card({ children, className = "" }: CardProps): ReactElement {
   return (
-    <div className={`rounded-2xl border border-orange-100 bg-white/80 p-4 shadow-sm sm:rounded-3xl sm:p-6 ${className}`}>
+    <div
+      className={`rounded-2xl border border-orange-100 bg-white/80 p-4 shadow-sm sm:rounded-3xl sm:p-6 ${className}`}
+    >
       {children}
     </div>
   );

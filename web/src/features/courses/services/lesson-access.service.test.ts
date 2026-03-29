@@ -1,6 +1,9 @@
 import { describe, expect, it } from "vitest";
 
-import { canAccessLessonContent, lessonAccessLabel } from "@/features/courses/services/lesson-access.service";
+import {
+  canAccessLessonContent,
+  lessonAccessLabel
+} from "@/features/courses/services/lesson-access.service";
 
 describe("lesson-access.service", () => {
   it("allows preview lessons without purchase", () => {

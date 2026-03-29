@@ -5,7 +5,10 @@ import type { CourseModule } from "@/features/courses/types/course";
 
 export type ModuleOutline = z.infer<typeof moduleOutlineSchema>;
 
-export function buildModulesFromOutline(courseId: string, modules: ModuleOutline[]): CourseModule[] {
+export function buildModulesFromOutline(
+  courseId: string,
+  modules: ModuleOutline[]
+): CourseModule[] {
   return [...modules]
     .sort((a, b) => a.order - b.order)
     .map((mod) => ({

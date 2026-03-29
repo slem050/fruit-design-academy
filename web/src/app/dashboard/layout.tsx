@@ -7,7 +7,9 @@ type DashboardLayoutProps = {
   children: ReactNode;
 };
 
-export default async function DashboardLayout({ children }: DashboardLayoutProps): Promise<ReactElement> {
+export default async function DashboardLayout({
+  children
+}: DashboardLayoutProps): Promise<ReactElement> {
   const session = await getMockSessionForServer();
 
   if (!session.isAuthenticated || session.role !== "student") {

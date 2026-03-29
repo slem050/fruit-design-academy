@@ -28,6 +28,23 @@ export type MessageCatalog = {
     purchasedMock: string;
     notPurchased: string;
     readMoreAcademy: string;
+    featuredTitle: string;
+    featuredEmpty: string;
+    galleryTitle: string;
+    galleryAlt1: string;
+    galleryAlt2: string;
+    galleryAlt3: string;
+    testimonialsTitle: string;
+    testimonial1: string;
+    testimonial1Author: string;
+    testimonial2: string;
+    testimonial2Author: string;
+    testimonial3: string;
+    testimonial3Author: string;
+    ctaBandTitle: string;
+    ctaBandBody: string;
+    ctaBandCourses: string;
+    ctaBandContact: string;
   };
   login: {
     title: string;
@@ -75,5 +92,27 @@ export type MessageCatalog = {
     dashboardOverview: string;
     dashboardResume: string;
     dashboardBack: string;
+  };
+  about: {
+    badge: string;
+    title: string;
+    lead: string;
+    visionTitle: string;
+    visionBody: string;
+  };
+  contact: {
+    badge: string;
+    eyebrow: string;
+    title: string;
+    lead: string;
+    backHome: string;
+    labelFullName: string;
+    labelEmail: string;
+    labelTopic: string;
+    labelMessage: string;
+    submit: string;
+    submitting: string;
+    successMessage: string;
+    errorGeneric: string;
   };
 };

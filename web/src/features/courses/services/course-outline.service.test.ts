@@ -11,8 +11,24 @@ describe("course-outline.service", () => {
         title: "Second",
         order: 1,
         lessons: [
-          { id: "les-2", title: "L2", description: "", videoUrl: "", isPreview: false, order: 1, duration: 60 },
-          { id: "les-1", title: "L1", description: "", videoUrl: "", isPreview: true, order: 0, duration: 30 }
+          {
+            id: "les-2",
+            title: "L2",
+            description: "",
+            videoUrl: "",
+            isPreview: false,
+            order: 1,
+            duration: 60
+          },
+          {
+            id: "les-1",
+            title: "L1",
+            description: "",
+            videoUrl: "",
+            isPreview: true,
+            order: 0,
+            duration: 30
+          }
         ]
       },
       {

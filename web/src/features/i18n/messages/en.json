@@ -27,7 +27,24 @@
     "purchaseLabel": "Purchase:",
     "purchasedMock": "Purchased (mock)",
     "notPurchased": "Not purchased",
-    "readMoreAcademy": "Read more about the academy"
+    "readMoreAcademy": "Read more about the academy",
+    "featuredTitle": "Featured courses",
+    "featuredEmpty": "No featured courses yet. Mark a published course as featured in admin.",
+    "galleryTitle": "Gallery",
+    "galleryAlt1": "Fruit platter arrangement",
+    "galleryAlt2": "Colorful tropical fruit display",
+    "galleryAlt3": "Event tray styling",
+    "testimonialsTitle": "What students say",
+    "testimonial1": "The lessons are clear and the visuals make it easy to follow along at home.",
+    "testimonial1Author": "Maya K., event planner",
+    "testimonial2": "Finally a structured path for fruit presentation — great for our catering demos.",
+    "testimonial2Author": "Omar R., chef",
+    "testimonial3": "Perfect for showing clients what premium trays can look like.",
+    "testimonial3Author": "Lin S., studio owner",
+    "ctaBandTitle": "Ready to explore?",
+    "ctaBandBody": "Browse the full catalog or reach out — we will respond when the intake pipeline is live.",
+    "ctaBandCourses": "View all courses",
+    "ctaBandContact": "Contact"
   },
   "login": {
     "title": "Sign in",
@@ -75,5 +92,27 @@
     "dashboardOverview": "Course overview",
     "dashboardResume": "Start or resume",
     "dashboardBack": "Back to dashboard"
+  },
+  "about": {
+    "badge": "About",
+    "title": "About the Fruit Design Academy",
+    "lead": "We showcase the craft of fruit design for events and a professional path for digital learners.",
+    "visionTitle": "Our vision",
+    "visionBody": "Make fruit design education more accessible through filmed courses, structured practice, and high-quality visual content."
+  },
+  "contact": {
+    "badge": "Contact",
+    "eyebrow": "Contact",
+    "title": "Contact us",
+    "lead": "Send a message — the form is validated on the client and server (Zod). No real email is sent in the demo phase.",
+    "backHome": "Back to home",
+    "labelFullName": "Full name",
+    "labelEmail": "Email",
+    "labelTopic": "Topic (optional)",
+    "labelMessage": "Message",
+    "submit": "Send",
+    "submitting": "Sending…",
+    "successMessage": "Message received (demo). Reference: {reference}. No email is sent at this stage.",
+    "errorGeneric": "Something went wrong."
   }
 }

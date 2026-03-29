@@ -51,7 +51,9 @@ export function LanguageSwitcher({ currentLanguage }: LanguageSwitcherProps): Re
             aria-busy={isBusy}
             onClick={() => void setLocale(language)}
             className={`inline-flex min-h-10 min-w-10 items-center justify-center rounded-full border px-3 py-2 transition disabled:cursor-not-allowed disabled:opacity-60 ${
-              isActive ? "border-orange-500 bg-orange-100" : "border-neutral-300 hover:border-orange-300"
+              isActive
+                ? "border-orange-500 bg-orange-100"
+                : "border-neutral-300 hover:border-orange-300"
             }`}
           >
             {language.toUpperCase()}

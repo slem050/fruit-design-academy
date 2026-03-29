@@ -1,0 +1,8 @@
+.next
+out
+node_modules
+package-lock.json
+coverage
+*.min.js
+playwright-report
+test-results

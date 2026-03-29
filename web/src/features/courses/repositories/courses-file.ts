@@ -34,7 +34,8 @@ const defaultCourses: Course[] = [
             id: "l-1",
             moduleId: "m-1",
             title: "Welcome and tools",
-            description: "Meet the instructor and learn the essential tools for fruit presentation.",
+            description:
+              "Meet the instructor and learn the essential tools for fruit presentation.",
             videoUrl: "https://example.com/videos/welcome",
             isPreview: true,
             order: 0,

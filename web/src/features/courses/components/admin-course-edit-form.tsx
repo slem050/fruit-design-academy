@@ -7,7 +7,10 @@ import type { ReactElement } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-import { updateCourseSchema, type UpdateCourseSchemaInput } from "@/features/courses/schemas/course.schema";
+import {
+  updateCourseSchema,
+  type UpdateCourseSchemaInput
+} from "@/features/courses/schemas/course.schema";
 import type { Course } from "@/features/courses/types/course";
 
 type AdminCourseEditFormProps = {
@@ -57,34 +60,61 @@ export function AdminCourseEditForm({ course }: AdminCourseEditFormProps): React
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 rounded-3xl border border-orange-100 bg-white p-6 shadow-sm">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="space-y-4 rounded-3xl border border-orange-100 bg-white p-6 shadow-sm"
+    >
       <div className="grid gap-4 md:grid-cols-2">
         <Field label="Title" error={errors.title?.message}>
-          <input {...register("title")} className="w-full rounded-xl border border-neutral-300 px-3 py-2" />
+          <input
+            {...register("title")}
+            className="w-full rounded-xl border border-neutral-300 px-3 py-2"
+          />
         </Field>
         <Field label="Slug" error={errors.slug?.message}>
-          <input {...register("slug")} className="w-full rounded-xl border border-neutral-300 px-3 py-2" />
+          <input
+            {...register("slug")}
+            className="w-full rounded-xl border border-neutral-300 px-3 py-2"
+          />
         </Field>
       </div>
 
       <Field label="Subtitle" error={errors.subtitle?.message}>
-        <input {...register("subtitle")} className="w-full rounded-xl border border-neutral-300 px-3 py-2" />
+        <input
+          {...register("subtitle")}
+          className="w-full rounded-xl border border-neutral-300 px-3 py-2"
+        />
       </Field>
 
       <Field label="Description" error={errors.description?.message}>
-        <textarea {...register("description")} rows={4} className="w-full rounded-xl border border-neutral-300 px-3 py-2" />
+        <textarea
+          {...register("description")}
+          rows={4}
+          className="w-full rounded-xl border border-neutral-300 px-3 py-2"
+        />
       </Field>
 
       <Field label="Marketing text" error={errors.marketingText?.message}>
-        <input {...register("marketingText")} className="w-full rounded-xl border border-neutral-300 px-3 py-2" />
+        <input
+          {...register("marketingText")}
+          className="w-full rounded-xl border border-neutral-300 px-3 py-2"
+        />
       </Field>
 
       <div className="grid gap-4 md:grid-cols-2">
         <Field label="Price" error={errors.price?.message}>
-          <input type="number" step="1" {...register("price")} className="w-full rounded-xl border border-neutral-300 px-3 py-2" />
+          <input
+            type="number"
+            step="1"
+            {...register("price")}
+            className="w-full rounded-xl border border-neutral-300 px-3 py-2"
+          />
         </Field>
         <Field label="Status" error={errors.status?.message}>
-          <select {...register("status")} className="w-full rounded-xl border border-neutral-300 px-3 py-2">
+          <select
+            {...register("status")}
+            className="w-full rounded-xl border border-neutral-300 px-3 py-2"
+          >
             <option value="draft">draft</option>
             <option value="published">published</option>
           </select>
@@ -92,7 +122,10 @@ export function AdminCourseEditForm({ course }: AdminCourseEditFormProps): React
       </div>
 
       <Field label="Thumbnail URL" error={errors.thumbnailUrl?.message}>
-        <input {...register("thumbnailUrl")} className="w-full rounded-xl border border-neutral-300 px-3 py-2" />
+        <input
+          {...register("thumbnailUrl")}
+          className="w-full rounded-xl border border-neutral-300 px-3 py-2"
+        />
       </Field>
 
       <label className="flex items-center gap-2 text-sm">

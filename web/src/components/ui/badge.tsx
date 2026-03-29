@@ -5,5 +5,9 @@ type BadgeProps = {
 };
 
 export function Badge({ children }: BadgeProps): ReactElement {
-  return <span className="inline-flex rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold text-orange-800">{children}</span>;
+  return (
+    <span className="inline-flex rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold text-orange-800">
+      {children}
+    </span>
+  );
 }

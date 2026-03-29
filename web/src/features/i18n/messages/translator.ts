@@ -29,13 +29,31 @@ export function createTranslator(lang: Language): {
 } {
   const primary = catalogs[lang];
   const fallback = catalogs.en;
-  const t = (path: string): string =>
-    getNested(primary, path) ?? getNested(fallback, path) ?? path;
+  const t = (path: string): string => getNested(primary, path) ?? getNested(fallback, path) ?? path;
   const format = (path: string, vars: Record<string, string>): string => {
     const template = t(path);
     return template.replace(/\{(\w+)\}/g, (_, key: string) => vars[key] ?? "");
   };
   return { t, format };
+}
+
+export function getContactLabels(lang: Language): MessageCatalog["contact"] {
+  const { t } = createTranslator(lang);
+  return {
+    badge: t("contact.badge"),
+    eyebrow: t("contact.eyebrow"),
+    title: t("contact.title"),
+    lead: t("contact.lead"),
+    backHome: t("contact.backHome"),
+    labelFullName: t("contact.labelFullName"),
+    labelEmail: t("contact.labelEmail"),
+    labelTopic: t("contact.labelTopic"),
+    labelMessage: t("contact.labelMessage"),
+    submit: t("contact.submit"),
+    submitting: t("contact.submitting"),
+    successMessage: t("contact.successMessage"),
+    errorGeneric: t("contact.errorGeneric")
+  };
 }
 
 export function getLoginLabels(lang: Language): MessageCatalog["login"] {

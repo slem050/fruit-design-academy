@@ -15,7 +15,12 @@ const variantClass: Record<ButtonVariant, string> = {
   secondary: "bg-white text-orange-800 hover:bg-orange-50 border-orange-200"
 };
 
-export function Button({ children, href, variant = "primary", className = "" }: ButtonProps): ReactElement {
+export function Button({
+  children,
+  href,
+  variant = "primary",
+  className = ""
+}: ButtonProps): ReactElement {
   const classes = `inline-flex min-h-10 w-full items-center justify-center rounded-full border px-5 py-2.5 text-sm font-semibold transition sm:w-auto sm:px-6 sm:py-3 ${variantClass[variant]} ${className}`;
 
   if (href) {

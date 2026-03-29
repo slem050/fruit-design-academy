@@ -1,6 +1,9 @@
 import { describe, expect, it } from "vitest";
 
-import { decodeMockSessionPayload, encodeMockSessionPayload } from "@/server/auth/mock-session.codec";
+import {
+  decodeMockSessionPayload,
+  encodeMockSessionPayload
+} from "@/server/auth/mock-session.codec";
 
 describe("mock-session.codec", () => {
   it("round-trips admin payload", () => {

@@ -33,7 +33,10 @@ function toOutlineState(modules: CourseModule[]): ModuleFormState[] {
   }));
 }
 
-export function AdminCourseOutlineForm({ courseId, initialModules }: AdminCourseOutlineFormProps): ReactElement {
+export function AdminCourseOutlineForm({
+  courseId,
+  initialModules
+}: AdminCourseOutlineFormProps): ReactElement {
   const router = useRouter();
   const [modules, setModules] = useState<ModuleFormState[]>(() => toOutlineState(initialModules));
   const [message, setMessage] = useState<string>("");
@@ -53,7 +56,9 @@ export function AdminCourseOutlineForm({ courseId, initialModules }: AdminCourse
   };
 
   const removeModule = (moduleId: string): void => {
-    setModules((prev) => prev.filter((mod) => mod.id !== moduleId).map((mod, index) => ({ ...mod, order: index })));
+    setModules((prev) =>
+      prev.filter((mod) => mod.id !== moduleId).map((mod, index) => ({ ...mod, order: index }))
+    );
   };
 
   const updateModuleField = (moduleId: string, field: "title" | "order", value: string): void => {
@@ -104,7 +109,9 @@ export function AdminCourseOutlineForm({ courseId, initialModules }: AdminCourse
         }
         return {
           ...mod,
-          lessons: mod.lessons.filter((l) => l.id !== lessonId).map((l, index) => ({ ...l, order: index }))
+          lessons: mod.lessons
+            .filter((l) => l.id !== lessonId)
+            .map((l, index) => ({ ...l, order: index }))
         };
       })
     );
@@ -168,11 +175,16 @@ export function AdminCourseOutlineForm({ courseId, initialModules }: AdminCourse
   };
 
   return (
-    <form onSubmit={onSubmit} className="space-y-6 rounded-3xl border border-orange-100 bg-white p-6 shadow-sm">
+    <form
+      onSubmit={onSubmit}
+      className="space-y-6 rounded-3xl border border-orange-100 bg-white p-6 shadow-sm"
+    >
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h2 className="text-xl font-semibold">Course outline</h2>
-          <p className="text-sm text-neutral-600">Modules and lessons (preview vs locked is mock until purchases exist).</p>
+          <p className="text-sm text-neutral-600">
+            Modules and lessons (preview vs locked is mock until purchases exist).
+          </p>
         </div>
         <button
           type="button"
@@ -183,7 +195,9 @@ export function AdminCourseOutlineForm({ courseId, initialModules }: AdminCourse
         </button>
       </div>
 
-      {modules.length === 0 ? <p className="text-sm text-neutral-600">No modules yet. Add a module to start.</p> : null}
+      {modules.length === 0 ? (
+        <p className="text-sm text-neutral-600">No modules yet. Add a module to start.</p>
+      ) : null}
 
       <div className="space-y-6">
         {modules.map((mod) => (
@@ -228,25 +242,34 @@ export function AdminCourseOutlineForm({ courseId, initialModules }: AdminCourse
               </div>
 
               {mod.lessons.map((lesson) => (
-                <div key={lesson.id} className="rounded-xl border border-neutral-200 bg-orange-50/40 p-3 space-y-2">
+                <div
+                  key={lesson.id}
+                  className="rounded-xl border border-neutral-200 bg-orange-50/40 p-3 space-y-2"
+                >
                   <div className="flex flex-wrap gap-2">
                     <input
                       value={lesson.title}
-                      onChange={(e) => updateLessonField(mod.id, lesson.id, "title", e.target.value)}
+                      onChange={(e) =>
+                        updateLessonField(mod.id, lesson.id, "title", e.target.value)
+                      }
                       className="min-w-[200px] flex-1 rounded-lg border border-neutral-300 px-2 py-1 text-sm"
                       placeholder="Lesson title"
                     />
                     <input
                       type="number"
                       value={lesson.order}
-                      onChange={(e) => updateLessonField(mod.id, lesson.id, "order", e.target.value)}
+                      onChange={(e) =>
+                        updateLessonField(mod.id, lesson.id, "order", e.target.value)
+                      }
                       className="w-20 rounded-lg border border-neutral-300 px-2 py-1 text-sm"
                       title="Order"
                     />
                     <input
                       type="number"
                       value={lesson.duration}
-                      onChange={(e) => updateLessonField(mod.id, lesson.id, "duration", e.target.value)}
+                      onChange={(e) =>
+                        updateLessonField(mod.id, lesson.id, "duration", e.target.value)
+                      }
                       className="w-24 rounded-lg border border-neutral-300 px-2 py-1 text-sm"
                       title="Duration (sec)"
                     />
@@ -254,7 +277,9 @@ export function AdminCourseOutlineForm({ courseId, initialModules }: AdminCourse
                       <input
                         type="checkbox"
                         checked={lesson.isPreview}
-                        onChange={(e) => updateLessonField(mod.id, lesson.id, "isPreview", e.target.checked)}
+                        onChange={(e) =>
+                          updateLessonField(mod.id, lesson.id, "isPreview", e.target.checked)
+                        }
                       />
                       Preview
                     </label>
@@ -268,14 +293,18 @@ export function AdminCourseOutlineForm({ courseId, initialModules }: AdminCourse
                   </div>
                   <textarea
                     value={lesson.description}
-                    onChange={(e) => updateLessonField(mod.id, lesson.id, "description", e.target.value)}
+                    onChange={(e) =>
+                      updateLessonField(mod.id, lesson.id, "description", e.target.value)
+                    }
                     rows={2}
                     className="w-full rounded-lg border border-neutral-300 px-2 py-1 text-sm"
                     placeholder="Description"
                   />
                   <input
                     value={lesson.videoUrl}
-                    onChange={(e) => updateLessonField(mod.id, lesson.id, "videoUrl", e.target.value)}
+                    onChange={(e) =>
+                      updateLessonField(mod.id, lesson.id, "videoUrl", e.target.value)
+                    }
                     className="w-full rounded-lg border border-neutral-300 px-2 py-1 text-sm"
                     placeholder="Video URL (optional for demo)"
                   />

@@ -21,7 +21,9 @@ export async function SiteHeader(): Promise<ReactElement> {
 
   return (
     <header className="sticky top-0 z-20 border-b border-orange-100 bg-white/90 backdrop-blur-sm">
-      <div className={`${headerShell} flex flex-col gap-3 py-3 sm:flex-row sm:items-center sm:justify-between sm:py-4`}>
+      <div
+        className={`${headerShell} flex flex-col gap-3 py-3 sm:flex-row sm:items-center sm:justify-between sm:py-4`}
+      >
         <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
           <Link href="/" className="shrink-0 text-sm font-semibold text-orange-700 sm:text-base">
             Fruit Design Academy

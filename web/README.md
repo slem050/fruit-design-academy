@@ -8,8 +8,22 @@ Next.js (App Router) frontend and API routes for the Fruit Design Academy platfo
 npm install
 npm run dev
 npm run lint
+npm run format:check
 npm run test
 npm run build
+```
+
+After installing dependencies, download Playwright’s browser once:
+
+```bash
+npx playwright install chromium
+```
+
+End-to-end smoke tests use a production server on port **4173** (see `playwright.config.ts`):
+
+```bash
+npm run build
+npm run test:e2e
 ```
 
 ## Cursor — before the next assigned step
@@ -37,4 +51,4 @@ Copy **`web/.env.example`** to **`.env.local`** and adjust.
 
 ## Translations (extensible)
 
-UI strings for the shell and home/login live in **`src/features/i18n/messages/{he,ar,en}.json`** (same key shape per file). Use **`createTranslator(locale)`** from `src/features/i18n/messages/translator.ts`. Missing keys fall back to English. Add a new locale by adding `xx.json`, extending the `Language` type, and updating middleware / `locale` API / language switcher.
+UI strings live in **`src/features/i18n/messages/{he,ar,en}.json`** (`chrome`, `home`, `login`, `courses`, `about`, `contact`). Use **`createTranslator(locale)`** from `src/features/i18n/messages/translator.ts`. Missing keys fall back to English. Add a locale by adding `xx.json`, extending the `Language` type, and updating middleware / `locale` API / language switcher.

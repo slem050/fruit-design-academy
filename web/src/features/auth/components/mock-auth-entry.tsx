@@ -102,7 +102,9 @@ export function MockAuthEntry({ nextPath, initialTab, labels }: MockAuthEntryPro
           aria-controls="panel-signin"
           onClick={() => selectTab("signin")}
           className={`min-h-10 flex-1 rounded-full px-3 text-sm font-semibold transition ${
-            tab === "signin" ? "bg-white text-orange-800 shadow-sm" : "text-neutral-600 hover:text-orange-800"
+            tab === "signin"
+              ? "bg-white text-orange-800 shadow-sm"
+              : "text-neutral-600 hover:text-orange-800"
           }`}
         >
           {labels.tabSignIn}
@@ -115,7 +117,9 @@ export function MockAuthEntry({ nextPath, initialTab, labels }: MockAuthEntryPro
           aria-controls="panel-signup"
           onClick={() => selectTab("signup")}
           className={`min-h-10 flex-1 rounded-full px-3 text-sm font-semibold transition ${
-            tab === "signup" ? "bg-white text-orange-800 shadow-sm" : "text-neutral-600 hover:text-orange-800"
+            tab === "signup"
+              ? "bg-white text-orange-800 shadow-sm"
+              : "text-neutral-600 hover:text-orange-800"
           }`}
         >
           {labels.tabSignUp}

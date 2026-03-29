@@ -1,6 +1,9 @@
 import { describe, expect, it } from "vitest";
 
-import { findLessonInCourse, getFirstLessonInCourse } from "@/features/courses/services/course-lesson.service";
+import {
+  findLessonInCourse,
+  getFirstLessonInCourse
+} from "@/features/courses/services/course-lesson.service";
 import type { Course } from "@/features/courses/types/course";
 
 const sampleCourse: Course = {
@@ -23,7 +26,16 @@ const sampleCourse: Course = {
       title: "Second",
       order: 1,
       lessons: [
-        { id: "l-b", moduleId: "m2", title: "B", description: "", videoUrl: "", isPreview: false, order: 0, duration: 0 }
+        {
+          id: "l-b",
+          moduleId: "m2",
+          title: "B",
+          description: "",
+          videoUrl: "",
+          isPreview: false,
+          order: 0,
+          duration: 0
+        }
       ]
     },
     {
@@ -32,8 +44,26 @@ const sampleCourse: Course = {
       title: "First",
       order: 0,
       lessons: [
-        { id: "l-a", moduleId: "m1", title: "A", description: "", videoUrl: "", isPreview: true, order: 1, duration: 0 },
-        { id: "l-z", moduleId: "m1", title: "Z", description: "", videoUrl: "", isPreview: false, order: 0, duration: 0 }
+        {
+          id: "l-a",
+          moduleId: "m1",
+          title: "A",
+          description: "",
+          videoUrl: "",
+          isPreview: true,
+          order: 1,
+          duration: 0
+        },
+        {
+          id: "l-z",
+          moduleId: "m1",
+          title: "Z",
+          description: "",
+          videoUrl: "",
+          isPreview: false,
+          order: 0,
+          duration: 0
+        }
       ]
     }
   ]

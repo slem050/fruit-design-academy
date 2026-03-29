@@ -1,7 +1,13 @@
 import { randomUUID } from "node:crypto";
 
-import { readCoursesFromFile, writeCoursesToFile } from "@/features/courses/repositories/courses-file";
-import { buildModulesFromOutline, type ModuleOutline } from "@/features/courses/services/course-outline.service";
+import {
+  readCoursesFromFile,
+  writeCoursesToFile
+} from "@/features/courses/repositories/courses-file";
+import {
+  buildModulesFromOutline,
+  type ModuleOutline
+} from "@/features/courses/services/course-outline.service";
 import type { Course, CreateCourseInput, UpdateCourseInput } from "@/features/courses/types/course";
 
 const normalizeSlug = (value: string): string => value.trim().toLowerCase().replace(/\s+/g, "-");
@@ -75,7 +81,10 @@ export const updateCourse = async (id: string, input: UpdateCourseInput): Promis
   return updated;
 };
 
-export const updateCourseOutline = async (id: string, modules: ModuleOutline[]): Promise<Course> => {
+export const updateCourseOutline = async (
+  id: string,
+  modules: ModuleOutline[]
+): Promise<Course> => {
   const courses = await readCoursesFromFile();
   const index = courses.findIndex((item) => item.id === id);
 

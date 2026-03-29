@@ -2,7 +2,10 @@ import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 
 import { updateOutlineBodySchema } from "@/features/courses/schemas/course.schema";
-import { findCourseById, updateCourseOutline } from "@/features/courses/repositories/course.repository";
+import {
+  findCourseById,
+  updateCourseOutline
+} from "@/features/courses/repositories/course.repository";
 import { requireMockAdmin } from "@/server/auth/require-mock-admin";
 
 export const runtime = "nodejs";

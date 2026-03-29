@@ -23,32 +23,35 @@ export default async function AdminCoursesPage(): Promise<ReactElement> {
 
       <div className="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
         <div className="inline-block min-w-full overflow-hidden rounded-2xl border border-orange-100 bg-white shadow-sm sm:rounded-3xl">
-        <table className="w-full min-w-[640px] text-left text-sm">
-          <thead className="bg-orange-50">
-            <tr>
-              <th className="px-4 py-3">Title</th>
-              <th className="px-4 py-3">Slug</th>
-              <th className="px-4 py-3">Status</th>
-              <th className="px-4 py-3">Price</th>
-              <th className="px-4 py-3">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {courses.map((course) => (
-              <tr key={course.id} className="border-t border-orange-100">
-                <td className="px-4 py-3">{course.title}</td>
-                <td className="px-4 py-3">{course.slug}</td>
-                <td className="px-4 py-3">{course.status}</td>
-                <td className="px-4 py-3">${course.price}</td>
-                <td className="px-4 py-3">
-                  <Link href={`/admin/courses/${course.id}/edit`} className="font-semibold text-orange-700 hover:underline">
-                    Edit
-                  </Link>
-                </td>
+          <table className="w-full min-w-[640px] text-left text-sm">
+            <thead className="bg-orange-50">
+              <tr>
+                <th className="px-4 py-3">Title</th>
+                <th className="px-4 py-3">Slug</th>
+                <th className="px-4 py-3">Status</th>
+                <th className="px-4 py-3">Price</th>
+                <th className="px-4 py-3">Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {courses.map((course) => (
+                <tr key={course.id} className="border-t border-orange-100">
+                  <td className="px-4 py-3">{course.title}</td>
+                  <td className="px-4 py-3">{course.slug}</td>
+                  <td className="px-4 py-3">{course.status}</td>
+                  <td className="px-4 py-3">${course.price}</td>
+                  <td className="px-4 py-3">
+                    <Link
+                      href={`/admin/courses/${course.id}/edit`}
+                      className="font-semibold text-orange-700 hover:underline"
+                    >
+                      Edit
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </main>

@@ -6,6 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Section } from "@/components/ui/section";
+import { HomeFeaturedCourses } from "@/features/home/components/home-featured-courses";
+import { HomeMarketingSections } from "@/features/home/components/home-marketing-sections";
 import { createTranslator } from "@/features/i18n/messages/translator";
 import { getLocaleFromHeaders } from "@/features/i18n/services/locale.server";
 import { getStudentMockHasFullCourseAccess } from "@/features/payments/services/mock-purchase.service";
@@ -22,7 +24,9 @@ export default async function HomePage(): Promise<ReactElement> {
       <header className="flex flex-col gap-4 sm:gap-6">
         <div className="min-w-0">
           <Badge>{t("home.badgeDemo")}</Badge>
-          <p className="text-xs uppercase tracking-wide text-orange-700 sm:text-sm">{t("home.siteTitle")}</p>
+          <p className="text-xs uppercase tracking-wide text-orange-700 sm:text-sm">
+            {t("home.siteTitle")}
+          </p>
           <h1 className={`${pageTitle} mt-2 md:text-4xl`}>{t("home.headline")}</h1>
         </div>
       </header>
@@ -36,6 +40,10 @@ export default async function HomePage(): Promise<ReactElement> {
           </Button>
         </div>
       </Card>
+
+      <HomeFeaturedCourses language={language} />
+
+      <HomeMarketingSections language={language} />
 
       <Section title={t("home.demoSectionTitle")}>
         <div className="grid gap-4 rounded-2xl border border-dashed border-orange-200 bg-orange-50/40 p-4 sm:rounded-3xl sm:p-6 md:grid-cols-2">

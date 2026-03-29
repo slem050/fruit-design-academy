@@ -51,7 +51,10 @@ export default async function CourseLessonPage({ params }: LessonPageProps): Pro
           {t("courses.lessonBreadcrumbCourses")}
         </Link>
         <span className="mx-2 text-neutral-400">/</span>
-        <Link href={`/courses/${course.slug}`} className="font-medium text-orange-700 hover:underline">
+        <Link
+          href={`/courses/${course.slug}`}
+          className="font-medium text-orange-700 hover:underline"
+        >
           {course.title}
         </Link>
         <span className="mx-2 text-neutral-400">/</span>
@@ -61,7 +64,9 @@ export default async function CourseLessonPage({ params }: LessonPageProps): Pro
       <header className="space-y-2">
         <p className="text-xs uppercase tracking-wide text-orange-700">{module.title}</p>
         <h1 className={pageTitle}>{lesson.title}</h1>
-        {lesson.description ? <p className="text-sm text-neutral-700 sm:text-base">{lesson.description}</p> : null}
+        {lesson.description ? (
+          <p className="text-sm text-neutral-700 sm:text-base">{lesson.description}</p>
+        ) : null}
       </header>
 
       {lesson.videoUrl ? (

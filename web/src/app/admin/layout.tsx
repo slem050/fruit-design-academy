@@ -1,6 +1,7 @@
 import type { ReactElement, ReactNode } from "react";
 import { redirect } from "next/navigation";
 
+import { AdminSubnav } from "@/components/layout/admin-subnav";
 import { getMockSessionForServer } from "@/server/auth/mock-session.server";
 
 type AdminLayoutProps = {
@@ -14,5 +15,10 @@ export default async function AdminLayout({ children }: AdminLayoutProps): Promi
     redirect("/login?next=%2Fadmin");
   }
 
-  return <>{children}</>;
+  return (
+    <>
+      <AdminSubnav />
+      {children}
+    </>
+  );
 }

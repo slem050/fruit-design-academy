@@ -29,7 +29,10 @@ export default async function DashboardCoursesPage(): Promise<ReactElement> {
       {published.length === 0 ? (
         <Card className="p-6">
           <p className="text-sm text-neutral-700">{t("courses.dashboardEmpty")}</p>
-          <Link href="/courses" className="mt-4 inline-block text-sm font-semibold text-orange-700 hover:underline">
+          <Link
+            href="/courses"
+            className="mt-4 inline-block text-sm font-semibold text-orange-700 hover:underline"
+          >
             {t("courses.dashboardBrowse")}
           </Link>
         </Card>
@@ -38,7 +41,8 @@ export default async function DashboardCoursesPage(): Promise<ReactElement> {
           {published.map((raw) => {
             const course = applyCourseLocalization(raw, language);
             const first = getFirstLessonInCourse(raw);
-            const statusLabel = course.status === "draft" ? t("courses.statusDraft") : t("courses.statusPublished");
+            const statusLabel =
+              course.status === "draft" ? t("courses.statusDraft") : t("courses.statusPublished");
             return (
               <li key={course.id}>
                 <Card className="h-full p-5">

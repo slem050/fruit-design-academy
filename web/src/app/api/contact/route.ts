@@ -2,7 +2,10 @@ import { NextResponse } from "next/server";
 
 import { isDemoMode } from "@/config/demo-mode";
 import { readDemoApiFixtures } from "@/features/demo/read-demo-api-fixtures";
-import { contactInquirySchema, normalizeContactPayload } from "@/features/contact/schemas/contact.schema";
+import {
+  contactInquirySchema,
+  normalizeContactPayload
+} from "@/features/contact/schemas/contact.schema";
 
 export const runtime = "nodejs";
 

@@ -10,7 +10,8 @@ export async function POST(request: Request): Promise<NextResponse> {
   if (!isDemoMode()) {
     return NextResponse.json(
       {
-        message: "Mock authentication is disabled. Set DEMO_MODE=true for demos or configure a real auth provider."
+        message:
+          "Mock authentication is disabled. Set DEMO_MODE=true for demos or configure a real auth provider."
       },
       { status: 403 }
     );

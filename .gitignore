@@ -153,3 +153,10 @@ docs/*
 .cursor/*
 .cursorrules/*
 .cursorignore
+
+# Playwright (web/)
+web/test-results/
+web/playwright-report/
+web/blob-report/
+web/playwright/.cache/
+*.md*
