@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { ReactElement } from "react";
 
+import { pageLead, pageShell, pageTitle } from "@/components/layout/page-container";
 import { AdminCourseEditForm } from "@/features/courses/components/admin-course-edit-form";
 import { AdminCourseOutlineForm } from "@/features/courses/components/admin-course-outline-form";
 import { findCourseById } from "@/features/courses/repositories/course.repository";
@@ -20,9 +21,9 @@ export default async function EditAdminCoursePage({ params }: EditCoursePageProp
   }
 
   return (
-    <main className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-6 py-12">
-      <h1 className="text-3xl font-semibold">Edit course</h1>
-      <p className="text-neutral-700">
+    <main className={`${pageShell} flex flex-col gap-8 sm:gap-10`}>
+      <h1 className={pageTitle}>Edit course</h1>
+      <p className={pageLead}>
         Changes are saved to the local data file (web/data/courses.json). Serverless hosts do not persist filesystem writes; use a real database for production.
       </p>
       <AdminCourseEditForm course={course} />

@@ -144,9 +144,12 @@ vite.config.ts.timestamp-*
 
 # Documentation and markdown (application code lives under web/)
 *.md
-docs/
+!README.md
+!CURSOR_STEP_GATE.md
+!web/README.md
+docs/*
 
-# Cursor / editor agent config (local only)
-.cursor/
-.cursorrules
+# Cursor — ignore local config except tracked agent step-gate rule
+.cursor/*
+.cursorrules/*
 .cursorignore

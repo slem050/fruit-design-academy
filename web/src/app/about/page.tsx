@@ -1,16 +1,17 @@
 import type { ReactElement } from "react";
 
+import { pageLead, pageShell, pageTitle } from "@/components/layout/page-container";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Section } from "@/components/ui/section";
 
 export default function AboutPage(): ReactElement {
   return (
-    <main className="mx-auto flex w-full max-w-5xl flex-col gap-8 px-6 py-12">
-      <header className="space-y-3">
+    <main className={`${pageShell} flex flex-col gap-6 sm:gap-8`}>
+      <header className="space-y-2 sm:space-y-3">
         <Badge>About</Badge>
-        <h1 className="text-3xl font-semibold">אודות האקדמיה לעיצוב פירות</h1>
-        <p className="text-neutral-700">
+        <h1 className={pageTitle}>אודות האקדמיה לעיצוב פירות</h1>
+        <p className={pageLead}>
           הפלטפורמה נבנית כדי להציג אומנות עיצוב פירות לאירועים ולספק מסלול למידה דיגיטלי מקצועי לסטודנטים.
         </p>
       </header>

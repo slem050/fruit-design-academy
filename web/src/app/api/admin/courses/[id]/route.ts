@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 
 import { updateCourseSchema } from "@/features/courses/schemas/course.schema";
 import { findCourseById, updateCourse } from "@/features/courses/repositories/course.repository";
+import { requireMockAdmin } from "@/server/auth/require-mock-admin";
 
 export const runtime = "nodejs";
 
@@ -11,6 +12,11 @@ type RouteContext = {
 };
 
 export async function PATCH(request: Request, context: RouteContext): Promise<NextResponse> {
+  const unauthorized = requireMockAdmin(request);
+  if (unauthorized) {
+    return unauthorized;
+  }
+
   const { id } = await context.params;
   const existing = await findCourseById(id);
 

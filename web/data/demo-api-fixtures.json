@@ -1,0 +1,8 @@
+{
+  "contact": {
+    "successExtra": {
+      "fixture": "demo-api-fixtures",
+      "note": "Merged on top of the normalized handler response when DEMO_MODE is on."
+    }
+  }
+}

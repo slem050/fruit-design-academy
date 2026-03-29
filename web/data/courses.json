@@ -12,6 +12,50 @@
     "isFeatured": true,
     "createdAt": "2025-01-01T00:00:00.000Z",
     "updatedAt": "2025-01-01T00:00:00.000Z",
+    "localization": {
+      "he": {
+        "title": "עיצוב מגש פירות אלגנטי",
+        "subtitle": "לימוד קומפוזיציית מגש פרימיום לאירועים",
+        "description": "קורס התחלה מלא לעיצוב מגשי פירות אלגנטיים לחתונות ואירועים פרטיים.",
+        "marketingText": "התחילו ליצור מגשי פירות ברמה גבוהה ובביטחון.",
+        "modules": {
+          "m-1": {
+            "title": "יסודות",
+            "lessons": {
+              "l-1": {
+                "title": "ברוכים הבאים וכלים",
+                "description": "הכרת המדריך והכלים החיוניים להגשת פירות."
+              },
+              "l-2": {
+                "title": "איזון צבעים במגשים",
+                "description": "הרכבת מגשים עם איזון צבע וגובה לאירועי פרימיום."
+              }
+            }
+          }
+        }
+      },
+      "ar": {
+        "title": "تصميم صواني فواكه أنيقة",
+        "subtitle": "تعلم تنسيق صواني احترافية للفعاليات",
+        "description": "دورة مبتكرة لتصميم صواني فواكه أنيقة لحفلات الزفاف والمناسبات الخاصة.",
+        "marketingText": "ابدأ بإنشاء صواني فواكه مميزة بثقة.",
+        "modules": {
+          "m-1": {
+            "title": "أساسيات",
+            "lessons": {
+              "l-1": {
+                "title": "ترحيب وأدوات",
+                "description": "تعرف على المدرب والأدوات الأساسية لتقديم الفواكه."
+              },
+              "l-2": {
+                "title": "توازن الألوان في الصواني",
+                "description": "تنسيق صوانٍ بتوازن لوني وارتفاعي للفعاليات الراقية."
+              }
+            }
+          }
+        }
+      }
+    },
     "modules": [
       {
         "id": "m-1",
@@ -22,7 +66,7 @@
             "id": "l-1",
             "title": "Welcome and tools",
             "description": "Meet the instructor and learn the essential tools for fruit presentation.",
-            "videoUrl": "https://example.com/videos/welcome",
+            "videoUrl": "https://www.youtube.com/watch?v=M7lc1UVf-VE",
             "isPreview": true,
             "order": 0,
             "duration": 420
@@ -31,7 +75,7 @@
             "id": "l-2",
             "title": "Color balance on trays",
             "description": "Compose trays with balanced color and height for premium events.",
-            "videoUrl": "https://example.com/videos/color-balance",
+            "videoUrl": "https://www.youtube.com/watch?v=aqz-KE-b5KQ",
             "isPreview": false,
             "order": 1,
             "duration": 900

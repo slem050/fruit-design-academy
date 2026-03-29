@@ -3,6 +3,9 @@ import type { ReactElement, ReactNode } from "react";
 
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import { DemoModeBanner } from "@/components/layout/demo-mode-banner";
+import { getLocaleFromHeaders } from "@/features/i18n/services/locale.server";
+import { isDemoMode } from "@/config/demo-mode";
 
 import "./globals.css";
 
@@ -15,12 +18,16 @@ type RootLayoutProps = {
   children: ReactNode;
 };
 
-export default function RootLayout({ children }: RootLayoutProps): ReactElement {
+export default async function RootLayout({ children }: RootLayoutProps): Promise<ReactElement> {
+  const locale = await getLocaleFromHeaders();
+  const dir = locale === "en" ? "ltr" : "rtl";
+
   return (
-    <html lang="he" dir="rtl">
+    <html lang={locale} dir={dir}>
       <body className="flex min-h-screen flex-col">
+        <DemoModeBanner visible={isDemoMode()} />
         <SiteHeader />
-        <div className="flex-1">{children}</div>
+        <div className="min-w-0 flex-1">{children}</div>
         <SiteFooter />
       </body>
     </html>

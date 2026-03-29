@@ -7,6 +7,7 @@ type ButtonProps = {
   children: ReactNode;
   href?: string;
   variant?: ButtonVariant;
+  className?: string;
 };
 
 const variantClass: Record<ButtonVariant, string> = {
@@ -14,16 +15,16 @@ const variantClass: Record<ButtonVariant, string> = {
   secondary: "bg-white text-orange-800 hover:bg-orange-50 border-orange-200"
 };
 
-export function Button({ children, href, variant = "primary" }: ButtonProps): ReactElement {
-  const className = `inline-flex items-center justify-center rounded-full border px-6 py-3 text-sm font-semibold transition ${variantClass[variant]}`;
+export function Button({ children, href, variant = "primary", className = "" }: ButtonProps): ReactElement {
+  const classes = `inline-flex min-h-10 w-full items-center justify-center rounded-full border px-5 py-2.5 text-sm font-semibold transition sm:w-auto sm:px-6 sm:py-3 ${variantClass[variant]} ${className}`;
 
   if (href) {
     return (
-      <Link href={href} className={className}>
+      <Link href={href} className={classes}>
         {children}
       </Link>
     );
   }
 
-  return <span className={className}>{children}</span>;
+  return <span className={classes}>{children}</span>;
 }

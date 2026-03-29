@@ -1,4 +1,26 @@
+import type { Language } from "@/features/i18n/types/language";
+
 export type CourseStatus = "draft" | "published";
+
+export type LocalizedLessonStrings = {
+  title?: string;
+  description?: string;
+};
+
+export type LocalizedModuleStrings = {
+  title?: string;
+  lessons?: Record<string, LocalizedLessonStrings>;
+};
+
+export type CourseLanguageStrings = {
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  marketingText?: string;
+  modules?: Record<string, LocalizedModuleStrings>;
+};
+
+export type CourseLocalization = Partial<Record<Language, CourseLanguageStrings>>;
 
 export type Lesson = {
   id: string;
@@ -33,6 +55,7 @@ export type Course = {
   createdAt: string;
   updatedAt: string;
   modules: CourseModule[];
+  localization?: CourseLocalization;
 };
 
 export type CreateCourseInput = {

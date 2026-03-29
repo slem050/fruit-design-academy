@@ -37,6 +37,32 @@ export const moduleRecordSchema = z.object({
   lessons: z.array(lessonRecordSchema)
 });
 
+const lessonLocalizationEntrySchema = z.object({
+  title: z.string().optional(),
+  description: z.string().optional()
+});
+
+const moduleLocalizationEntrySchema = z.object({
+  title: z.string().optional(),
+  lessons: z.record(z.string(), lessonLocalizationEntrySchema).optional()
+});
+
+const courseLanguageBlockSchema = z.object({
+  title: z.string().optional(),
+  subtitle: z.string().optional(),
+  description: z.string().optional(),
+  marketingText: z.string().optional(),
+  modules: z.record(z.string(), moduleLocalizationEntrySchema).optional()
+});
+
+export const courseLocalizationFileSchema = z
+  .object({
+    he: courseLanguageBlockSchema.optional(),
+    ar: courseLanguageBlockSchema.optional(),
+    en: courseLanguageBlockSchema.optional()
+  })
+  .optional();
+
 export const courseRecordSchema = z.object({
   id: z.string().min(1),
   title: z.string(),
@@ -50,7 +76,8 @@ export const courseRecordSchema = z.object({
   isFeatured: z.boolean(),
   createdAt: z.string(),
   updatedAt: z.string(),
-  modules: z.array(moduleRecordSchema).optional().default([])
+  modules: z.array(moduleRecordSchema).optional().default([]),
+  localization: courseLocalizationFileSchema
 });
 
 export const coursesFileSchema = z.array(courseRecordSchema);

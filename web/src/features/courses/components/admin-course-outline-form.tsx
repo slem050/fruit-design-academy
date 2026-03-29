@@ -288,15 +288,18 @@ export function AdminCourseOutlineForm({ courseId, initialModules }: AdminCourse
 
       {message ? <p className="text-sm text-orange-700">{message}</p> : null}
 
-      <div className="flex gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         <button
           type="submit"
           disabled={isSaving}
-          className="rounded-full bg-orange-500 px-5 py-2 text-sm font-semibold text-white hover:bg-orange-600 disabled:opacity-50"
+          className="min-h-10 w-full rounded-full bg-orange-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-orange-600 disabled:opacity-50 sm:w-auto"
         >
           {isSaving ? "Saving..." : "Save outline"}
         </button>
-        <Link href="/admin/courses" className="rounded-full border border-neutral-300 px-5 py-2 text-sm font-semibold">
+        <Link
+          href="/admin/courses"
+          className="inline-flex min-h-10 w-full items-center justify-center rounded-full border border-neutral-300 px-5 py-2.5 text-center text-sm font-semibold sm:w-auto"
+        >
           Back to list
         </Link>
       </div>

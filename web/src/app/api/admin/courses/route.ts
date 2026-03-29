@@ -3,10 +3,16 @@ import { NextResponse } from "next/server";
 
 import { createCourseSchema } from "@/features/courses/schemas/course.schema";
 import { createCourse } from "@/features/courses/repositories/course.repository";
+import { requireMockAdmin } from "@/server/auth/require-mock-admin";
 
 export const runtime = "nodejs";
 
 export async function POST(request: Request): Promise<NextResponse> {
+  const unauthorized = requireMockAdmin(request);
+  if (unauthorized) {
+    return unauthorized;
+  }
+
   const body = (await request.json()) as unknown;
   const parsed = createCourseSchema.safeParse(body);
 
