@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { RemoteFillImage } from "@/components/ui/remote-fill-image";
 import { HOME_HERO_CARD_IMAGE } from "@/features/home/constants/home-media";
+import { HomeAmbientFruitBackground } from "@/features/home/components/home-ambient-fruit-background";
 import { createTranslator } from "@/features/i18n/messages/translator";
 import type { Language } from "@/features/i18n/types/language";
 
@@ -20,6 +21,7 @@ export function HomeHero({ language }: HomeHeroProps): ReactElement {
       className="relative overflow-hidden border-b border-orange-100/80 bg-gradient-to-br from-amber-50 via-[#fff5eb] to-rose-50/90"
       aria-labelledby="home-hero-heading"
     >
+      <HomeAmbientFruitBackground />
       <div
         className="pointer-events-none absolute -left-32 top-10 h-72 w-72 rounded-full bg-orange-200/40 blur-3xl"
         aria-hidden

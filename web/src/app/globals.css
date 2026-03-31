@@ -130,3 +130,44 @@ button:focus:not(:focus-visible),
 a:focus:not(:focus-visible) {
   outline: none;
 }
+
+@keyframes home-fruit-float {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(-3deg);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0) rotate(4deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-3deg);
+  }
+}
+
+@keyframes home-fruit-float-slow {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(2deg);
+  }
+  50% {
+    transform: translate3d(0, -10px, 0) rotate(-4deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(2deg);
+  }
+}
+
+.home-fruit-float {
+  animation: home-fruit-float 8s ease-in-out infinite;
+  filter: saturate(1.05);
+}
+
+.home-fruit-float-slow {
+  animation: home-fruit-float-slow 11s ease-in-out infinite;
+  filter: saturate(1.05);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-fruit-float,
+  .home-fruit-float-slow {
+    animation: none;
+  }
+}
